@@ -16,37 +16,38 @@
             </div>
         </div>
         <br>
-        <div class="row">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane active" id="upcoming-events" role="tabpanel">
-                    <?php foreach ($data->result() as $row) : ?>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="event-date">
-                                        <h4><?php echo date("d", strtotime($row->agenda_tanggal)); ?></h4> <span><?php echo date("M Y", strtotime($row->agenda_tanggal)); ?></span>
-                                    </div>
-                                    <span class="event-time"><?php echo $row->agenda_waktu; ?></span>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="event-heading">
-                                        <h3><?php echo $row->agenda_nama; ?></h3>
-                                        <p><?php echo $row->agenda_deskripsi; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="event-underline">
-                        </div>
-                    <?php endforeach; ?>
-
-                    <div class="col-md-12 text-center">
-                        <?php echo $page; ?>
+                  <div class="card-header" id="headingTwo">
+                    <h1 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Januari
+                      </button>
+                    </h1>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Coming soon
                     </div>
+                  </div>
                 </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h1 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Februari
+                      </button>
+                    </h1>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Coming soon
+                    </div>
+                  </div>
+                </div>
+                                  
 
             </div>
-        </div>
     </div>
 </section>
 <!--//END EVENTS -->

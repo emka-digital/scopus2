@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Des 2020 pada 07.39
+-- Waktu pembuatan: 23 Des 2020 pada 10.58
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.3.20
 
@@ -70,9 +70,8 @@ CREATE TABLE `tbl_album` (
 --
 
 INSERT INTO `tbl_album` (`album_id`, `album_nama`, `album_tanggal`, `album_pengguna_id`, `album_author`, `album_count`, `album_cover`) VALUES
-(1, 'Kedatangan Tamu Asing', '2016-09-08 13:00:55', 1, 'M Fikri Setiadi', 5, '202aa754590dfc1070c624bad294abbc.jpg'),
-(3, 'Pemilu Osis 2016-2017', '2017-01-21 01:58:16', 1, 'M Fikri Setiadi', 3, 'dc088a9fb62333012ff7a601828219d7.jpg'),
-(4, 'Kegiatan Belajar Siswa', '2017-01-24 01:31:13', 1, 'M Fikri Setiadi', 7, '203bc0411a07ed0430d39bcc38ec2c56.jpg');
+(5, 'Flyer', '2020-12-23 08:11:51', 5, 'Dickyfli Perdana Putra', 8, 'a6a532b5d1f8cb40d2711160e5a8fdca.jpg'),
+(6, 'webinar', '2020-12-23 08:30:46', 5, 'Dickyfli Perdana Putra', 20, 'bf090974776d9637664bad5a3cc4c2d1.jpg');
 
 -- --------------------------------------------------------
 
@@ -93,7 +92,8 @@ CREATE TABLE `tbl_bukti_pembayaran` (
 
 INSERT INTO `tbl_bukti_pembayaran` (`id`, `email`, `id_order`, `bukti_pembayaran`) VALUES
 (1, 'Muaralembu11@gmail.com', '90tYs', 'appl11.PNG'),
-(2, 'Muaralembu11@gmail.com', '90tYs', 'appl12.PNG');
+(2, 'Muaralembu11@gmail.com', '90tYs', 'appl12.PNG'),
+(3, 'bertojunikrisnanto@gmail.com', 'nKrmG', '10.PNG');
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,35 @@ INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_judul`, `galeri_tanggal`, `galeri
 (15, 'Belajar komputer programming', '2017-01-24 01:32:34', '93048f2a103987bce8c8ec8d6912de06.jpg', 4, 1, 'M Fikri Setiadi'),
 (16, 'Belajar komputer programming', '2017-01-24 01:32:44', '41f46be181f2f8452c2041b5e79a05a5.jpg', 4, 1, 'M Fikri Setiadi'),
 (17, 'Belajar sambil bermain', '2017-01-24 01:33:08', '2858b0555c252690e293d29b922ba8e6.jpg', 4, 1, 'M Fikri Setiadi'),
-(18, 'Makan bersama', '2017-01-24 01:33:24', '90d67328e33a31d3f5eecd7dcb25b55d.jpg', 4, 1, 'M Fikri Setiadi');
+(18, 'Makan bersama', '2017-01-24 01:33:24', '90d67328e33a31d3f5eecd7dcb25b55d.jpg', 4, 1, 'M Fikri Setiadi'),
+(38, 'Flyer', '2020-12-23 08:49:52', '767237dcafc4b725d01e9f1073d427a0.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(39, 'Flyer 2', '2020-12-23 08:50:26', '2e765497138659f9475716527b51a6d0.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(40, 'flyer 3', '2020-12-23 08:51:10', '61e59a4e0990198931afdd4c8fa6cb09.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(41, 'flyer 4', '2020-12-23 08:51:44', '1f66c9ad52f20ec56ed2a99bb0c7e6e3.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(42, 'flyer 5', '2020-12-23 08:52:32', '3110a28d98b86d8b9e28f3ad481c7863.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(43, 'flyer 6', '2020-12-23 08:53:12', 'd20f822003d6d231450e099d42a9edb6.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(44, 'flyer 7', '2020-12-23 08:54:17', 'a145ef7737944508dbcd4b3647242268.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(45, 'flyer 8', '2020-12-23 08:54:59', '8413ba2fc5b830b958dc477d4e1b1fc9.jpg', 5, 5, 'Dickyfli Perdana Putra'),
+(47, 'webinar', '2020-12-23 08:56:23', '08ae84b88d56dfbdfba1e2a08d6f678d.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(48, 'webinar 2', '2020-12-23 08:56:44', '53fa304fc91807015bdac935a760070b.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(49, 'Webinar 3', '2020-12-23 08:57:23', '06acd55ab1a31d4bea96f44e3b9e62d4.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(50, 'Webinar 4', '2020-12-23 08:57:40', '5830d55a010c3a13ec4227dba991fae8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(51, 'webinar 5', '2020-12-23 08:57:59', '4cefcbb23550d44a79099827fbd85507.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(52, 'webinar 6', '2020-12-23 08:58:17', 'fe133a1c78718225fd2aeed62d4345bb.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(53, 'webinar 7', '2020-12-23 08:59:13', 'e87c5edcc4cd44db58b6d7570e262678.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(54, 'webinar 8', '2020-12-23 08:59:36', '9d9f5322f6db1da1956a1b978cf5d2d3.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(55, 'webinar 9', '2020-12-23 08:59:57', '25c0d336f9b83bd4f738550ad814815e.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(56, 'webinar 10', '2020-12-23 09:00:16', 'c73dd9188ad08bdb2c7280e2d071f652.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(57, 'webinar 11', '2020-12-23 09:22:33', 'dfbca5e96800d56e2c9846dadba72b78.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(58, 'webinar 12', '2020-12-23 09:22:50', '4fc727d96e37ef3c3b2f7a30d6c5bb30.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(60, 'webinar 13', '2020-12-23 09:24:02', '0568fd2f4bc93a322d27c5777514985f.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(61, 'webinar 14', '2020-12-23 09:24:21', '8714ea8db9a29149c176799f66eae103.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(62, 'webinar 15', '2020-12-23 09:24:43', 'da5a20aabf2615a5715b6d695fa96811.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(63, 'webinar 16', '2020-12-23 09:27:03', '33c0ac014ba3044eef6fa13c723528bb.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(64, 'webinar 17', '2020-12-23 09:27:21', 'ce0eb78071eb556adf01d7562ee90bd8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(65, 'webinar 18', '2020-12-23 09:27:46', '4181e970d37444caaef46912fab0d9c0.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(66, 'webinar 19', '2020-12-23 09:28:03', 'b14b4a885466d99d2e9c2a4a056718d8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
+(67, 'webinar kemenkes', '2020-12-23 09:28:40', '84df7199d3d57c40726f860d3ab7e25f.jpg', 6, 5, 'Dickyfli Perdana Putra');
 
 -- --------------------------------------------------------
 
@@ -188,14 +216,9 @@ CREATE TABLE `tbl_guru` (
 --
 
 INSERT INTO `tbl_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_jenkel`, `guru_tmp_lahir`, `guru_tgl_lahir`, `guru_mapel`, `guru_photo`, `guru_tgl_input`) VALUES
-(1, '927482658274982', 'M Fikri Setiadi', 'L', 'Padang', '25 September 1993', 'Teknik Komputer', 'f6bbe1e04e78e0d715e9830a605794aa.jpg', '2017-01-26 07:49:43'),
-(2, '927482658274981', 'Thomas Muller', 'L', 'Germany', '25 September 1989', 'Olahgara', NULL, '2017-01-26 13:38:54'),
-(3, '-', 'Joko Subroto', 'L', 'Jakarta', '25 September 1989', 'PPKN, Matematika', NULL, '2017-01-26 13:41:20'),
-(4, '-', 'Kusta Otomo', 'L', 'Jakarta', '25 September 1989', 'Seni Budaya', NULL, '2017-01-26 13:42:08'),
-(5, '-', 'Yuliani Ningsih', 'P', 'Padang', '27 September 1993', 'Bahasa Indonesia', NULL, '2017-01-26 13:42:48'),
-(6, '927482658274993', 'Ari Hidayat', 'L', 'Padang', '25 September 1993', 'Bahasa Inggris', NULL, '2017-01-26 13:43:46'),
-(7, '927482658274998', 'Irma Cantika', 'P', 'Padang', '25 September 1993', 'Bahasa Inggris, IPA', '4200d2514abf45755943526b74474c16.jpg', '2017-01-26 13:45:11'),
-(8, '-', 'Ririn Febriesta', 'P', 'Padang', '27 September 1994', 'Pend. Agama Islam', NULL, '2017-01-27 04:28:23');
+(1, '-', 'Eka Siskawati', 'P', '-', '-', 'Trainer', '306a7dc2af18774738ff9925b9de7ef3.jpeg', '2017-01-26 07:49:43'),
+(2, '-', 'Fadilah Umar', 'L', '-', '-', 'Trainer ', '7cc54c9d4633f6a1f84b19b83a5b06ac.jpeg', '2017-01-26 13:38:54'),
+(3, '-', 'Jamaluddin Hos', 'L', '-', '-', 'Trainer ', '9ae55ed82ab0301cd09996aa0fe0fad5.JPG', '2017-01-26 13:41:20');
 
 -- --------------------------------------------------------
 
@@ -222,7 +245,9 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 (3, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Ini adalah pesan ', '2017-06-21 03:45:57', 0),
 (5, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Ping !', '2017-06-21 03:53:19', 0),
 (7, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Hi, there!', '2017-07-01 07:28:08', 0),
-(8, 'M Fikri', 'fikrifiver97@gmail.com', '084375684364', 'Hi There, Would you please help me about register?', '2018-08-06 13:51:07', 0);
+(8, 'M Fikri', 'fikrifiver97@gmail.com', '084375684364', 'Hi There, Would you please help me about register?', '2018-08-06 13:51:07', 0),
+(9, 'joko', 'Muaralembu11@gmail.com', '082386572800', 'jskjjs', '2020-12-13 13:34:22', 0),
+(10, 'suparman', 'Muaralembu11@gmail.com', '082386572800', 'sdfsd', '2020-12-13 13:35:00', 0);
 
 -- --------------------------------------------------------
 
@@ -310,7 +335,9 @@ CREATE TABLE `tbl_komentar` (
 INSERT INTO `tbl_komentar` (`komentar_id`, `komentar_nama`, `komentar_email`, `komentar_isi`, `komentar_tanggal`, `komentar_status`, `komentar_tulisan_id`, `komentar_parent`) VALUES
 (1, 'M Fikri', 'fikrifiver97@gmail.com', ' Nice Post.', '2018-08-07 15:09:07', '1', 24, 0),
 (2, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', ' Awesome Post', '2018-08-07 15:14:26', '1', 24, 0),
-(3, 'Joko', 'joko@gmail.com', 'Thank you.', '2018-08-08 03:54:56', '1', 24, 1);
+(3, 'Joko', 'joko@gmail.com', 'Thank you.', '2018-08-08 03:54:56', '1', 24, 1),
+(4, 'Oktarizal', 'Muaralembu11@gmail.com', ' jhjhhjhj', '2020-12-13 13:40:42', '1', 25, 0),
+(5, 'M Fikri Setiadi', '', 'hdjashdkjhaskdh', '2020-12-13 13:41:24', '1', 25, 4);
 
 -- --------------------------------------------------------
 
@@ -377,7 +404,6 @@ CREATE TABLE `tbl_menu_member` (
 INSERT INTO `tbl_menu_member` (`id`, `title`, `url`, `icon`) VALUES
 (1, 'Dashboard', 'member/dasboard', 'nav-icon fas fa-fw fa-tachometer-alt'),
 (2, 'Profile', 'member/profile', 'nav-icon fas fa-fw fa-users-cog'),
-(3, 'Referal', 'member/profile', 'nav-icon fas fa-fw fa-users'),
 (4, 'Order', 'member/order', 'nav-icon fas fa-fw fa-shopping-cart'),
 (7, 'Invoice', 'member/tagihan', 'nav-icon fas fa-fw fa-dollar-sign'),
 (8, 'Download', 'member/ambil', 'nav-icon fas fa-fw fa-cloud-download-alt'),
@@ -407,8 +433,11 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `nama`, `email`, `nama_webinar`, `tanggal`, `tanggal_pelaksanaan`, `harga`, `status`) VALUES
+('8hxS2', 'berto juni', 'bertojunikrisnanto@gmail.com', 'jhgjhgjgj', '13 December 2020', '2020-12-16', 76767, 0),
 ('90tYs', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Value Investing', '10 December 2020', '2020-11-23', 500000, 0),
+('nKrmG', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Technical analysis Saham', '13 December 2020', '2020-11-26', 600000, 1),
 ('nSwAV', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Ngoding Skuy', '05 December 2020', '2020-11-25', 10000000, 1),
+('Ojwt7', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Value Investing', '13 December 2020', '2020-11-23', 500000, 0),
 ('Tn7zx', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Technical analysis Saham', '11 December 2020', '2020-11-26', 600000, 0);
 
 -- --------------------------------------------------------
@@ -442,7 +471,7 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pengguna_jenkel`, `pengguna_username`, `pengguna_password`, `pengguna_tentang`, `pengguna_email`, `pengguna_nohp`, `pengguna_facebook`, `pengguna_twitter`, `pengguna_linkdin`, `pengguna_google_plus`, `pengguna_status`, `pengguna_level`, `pengguna_register`, `pengguna_photo`) VALUES
-(1, 'M Fikri Setiadi', 'Just do it', 'L', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'I am a mountainner. to me mountainerring is a life', 'fikrifiver97@gmail.com', '081277159401', 'facebook.com/m_fikri_setiadi', 'twitter.com/fiver_fiver', '', '', 1, '1', '2016-09-03 06:07:55', 'db5dec647062751f2fb236b9bc3f1c54.png'),
+(1, 'M Fikri Setiadi', 'Just do it', 'L', 'admin', 'cbf8e3749d40eb3ae5f14d1ea0db6e98', 'I am a mountainner. to me mountainerring is a life', 'fikrifiver97@gmail.com', '081277159401', 'facebook.com/m_fikri_setiadi', 'twitter.com/fiver_fiver', '', '', 1, '1', '2016-09-03 06:07:55', 'db5dec647062751f2fb236b9bc3f1c54.png'),
 (5, 'Dickyfli Perdana Putra', NULL, 'L', 'dickyfli', '4d5c63dd7149de9360248f633effa069', NULL, 'Muaralembu11@gmail.com', '082386572800', NULL, NULL, NULL, NULL, 1, '1', '2020-11-10 17:17:41', 'b4a3e95f8237cbed3de04745478b9d3a.jpg');
 
 -- --------------------------------------------------------
@@ -506,7 +535,11 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (946, '2020-12-05 17:44:40', '::1', 'Chrome'),
 (947, '2020-12-09 13:33:55', '::1', 'Chrome'),
 (948, '2020-12-10 02:08:52', '::1', 'Chrome'),
-(949, '2020-12-11 05:29:21', '::1', 'Chrome');
+(949, '2020-12-11 05:29:21', '::1', 'Chrome'),
+(950, '2020-12-13 10:46:42', '::1', 'Chrome'),
+(951, '2020-12-21 12:48:55', '::1', 'Chrome'),
+(952, '2020-12-22 12:14:47', '::1', 'Chrome'),
+(953, '2020-12-23 03:59:36', '::1', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -598,7 +631,7 @@ INSERT INTO `tbl_tulisan` (`tulisan_id`, `tulisan_judul`, `tulisan_isi`, `tulisa
 (22, 'Prestasi membangga dari siswa MSchool', '<p>Prestasi dan penghargaan merupakan trigger (pemicu) semangat belajar siswa. Ada banyak prestasi yang telah diraih oleh siswa m-sekolah. Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:38:21', 6, 'Prestasi', 1, 'a59aa487ab2e3b57b2fcf75063b67575.jpg', 1, 'M Fikri Setiadi', 0, 'prestasi-membangga-dari-siswa-mschool'),
 (23, 'Pelaksanaan Ujian Nasional MSchool', '<p>Pelaksanaan UN (Ujian Nasional) di sekolah M-Sekolah berlangsung tentram dan damai. Terlihat ketenangan terpancar diwajah siswa berprestasi.&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:41:30', 1, 'Pendidikan', 3, '12bfb1953df800c59835a2796f8c6619.jpg', 1, 'M Fikri Setiadi', 0, 'pelaksanaan-ujian-nasional-mschool'),
 (24, 'Proses belajar mengajar MSchool', '<p>Proses belajar mengajar di sekolah m-sekolah berlangsung menyenangkan. Didukung oleh instruktur yang fun dengan metode mengajar yang tidak biasa. Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel a Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel .</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:46:29', 1, 'Pendidikan', 162, 'ea114dc1ec5275560a5ef3238fd04722.jpg', 1, 'M Fikri Setiadi', 0, 'proses-belajar-mengajar-mschool'),
-(25, 'iPhone 8 Baru Mengungkapkan Fitur Mengecewakan', '<p>Apple CEO Tim Cook delivers the opening keynote address the 2017 Apple.</p>\r\n\r\n<p><br />\r\nSudah lama sekali sejak Apple mampu menyimpan kejutan nyata dari beledu digital dan mengungkapkan &#39;satu hal&#39; yang sebenarnya selama sebuah keynote. Fase desain dan prototyping yang panjang, ditambah dengan rantai pasokan yang diperluas, telah menghasilkan garis manufaktur yang bocor.<br />\r\n<br />\r\nTariklah permintaan yang tak terpuaskan dari si geekerati dan Anda tidak akan pernah bisa menyimpan rahasianya ... bahkan jika penonton akan berpura-pura bahwa segala sesuatu yang dikatakan Tim Cook adalah sebuah wahyu.<br />\r\n<br />\r\nSemuanya di tampilkan untuk portofolio iPhone baru, meskipun jika kita jujur ??tidak ada hal baru yang bisa dilihat. Ini hanya Tim Cook dan timnya yang membuat model tahun lalu &#39;sedikit lebih baik&#39; dan mengajukan konsumen proposisi yang sama seperti setiap produsen smartphone lainnya.<br />\r\n<br />\r\nMungkin aku berharap terlalu banyak dari Apple. Pengulangan Timey dari mimpi Silicon Valley tidak dibangun dengan risiko, mendorong amplop, atau bereksperimen dengan bentuk atau fungsinya. Bagaimana Tim Cook bisa mendorong inovasi ketika begitu banyak kekaisarannya dibangun di seputar kebutuhan akan penjualan siklis iPhone yang terjamin? Jika penjualan smartphone turun, maka yayasan Cupertino akan berada dalam bahaya.<br />\r\n<br />\r\nJawaban Apple untuk ini adalah iPhone 8. Sementara iPhone 7S dan iPhone 7S Plus menjaga harapan, iPhone 8 bisa bereksperimen dengan bentuk, harga, dan kekuatan. Ini adalah handset yang akan mendorong batas teknologi Apple dengan layar OLED yang cerah dan jelas di bawah kaca melengkung yang membentuk bagian luarnya. Inilah smartphone yang membawa kekuatan magis wireless charging ke ekosistem iOS dan akan menawarkan pengenalan wajah untuk keamanan.<br />\r\n<br />\r\nYang semua terdengar hebat tapi itu satu set poin peluru yang bisa diterapkan ke banyak handset Android terkemuka yang ada di pasaran saat ini. Bahkan dengan andalannya yang maju untuk tahun 2017, Apple melakukan sedikit lebih banyak daripada mengenalkan teknologi yang ada ke portofolio iOS.<br />\r\n<br />\r\nItu tidak terlihat seperti ini beberapa bulan yang lalu. Fitur yang diduga dikeluarkan oleh Apple dari iPhone 8 memamerkan beberapa pemikiran terbaru tentang perangkat mobile, termasuk pengisian daya nirkabel jarak jauh dan sensor biometrik tertanam di bawah layar kaca. Ini perlahan-lahan telah terbantahkan oleh industri rumahan dan desas-desus, sampai-sampai kita cukup tahu apa yang terjadi dari iPhone 8.<br />\r\n<br />\r\nTentu saja iPhone 8 (dan lebih dari kemungkinan iPhone 7S dan 7S Plus) akan mendapat keuntungan dari perubahan pada konstruksi interior. Akan ada pencantuman iOS 11 dan integrasi perangkat lunak yang ketat ke perangkat keras. Akan ada anggukan Apple untuk kesederhanaan di UI dan aplikasi pihak ketiga akan segera menghadirkan fitur lanjutan kepada pengguna rata-rata.<br />\r\n<br />\r\nIni bukan perubahan sepele, tapi yang menyoroti ini adalah menjelaskan bagaimana sosis dibuat. Mereka adalah rakit tweak untuk paket yang sama. Anda bisa menambahkan kancing diamante ke gaun Anda, mengganti lapisannya, dan mengeluarkan pinggulnya karena tahun-tahun yang lewat, tapi pakaiannya tetap sama seperti yang orang lihat berkali-kali. Itu cukup bagi bisnis Apple untuk terus melakukannya dengan baik dan membuat pemegang saham tetap bahagia, namun Anda tidak dapat terus kembali ke bidang yang sama dan berharap untuk tetap berada di puncak permainan smartphone. Sesuatu harus diberikan.<br />\r\n<br />\r\nPortofolio Apple 2017 membajak bidang yang sama persis dengan tahun-tahun sebelumnya. Tulang punggung penjualan akan terdiri dari iPhone 7S dan iPhone 7S Plus yang berulang-ulang saat Tim Cook kembali menanam benih di alur yang sama persis seperti model sebelumnya. IPhone 8 dapat diluncurkan tepat waktu, namun stok akan sulit didapat dan Apple akan, sekali lagi, tidak merilis angka penjualan. Ini akan menjadi hal baru yang menarik dan berkilau, tapi mari kita panggil apa adanya.</p>\r\n\r\n<p>Tim Cook akan menyilangkan jari-jarinya sehingga cukup banyak orang yang senang bisa &#39;membeli iPhone lain&#39; dan terus menggelontorkannya tanpa melihat persaingan. IPhone 8 adalah Apple yang bermain mengejar kemajuan teknologi kompetisi, dengan harapan tidak ada yang memperhatikan bahwa iPhone Baru Kaisar tidak semudah yang terlihat.</p>\r\n', '2018-08-08 13:26:08', 5, 'Penelitian', 4, 'a0b99616241c9aded7f2a02661798d98.jpg', 1, 'M Fikri Setiadi', 0, 'iphone-8-baru-mengungkapkan-fitur-mengecewakan');
+(25, 'iPhone 8 Baru Mengungkapkan Fitur Mengecewakan', '<p>Apple CEO Tim Cook delivers the opening keynote address the 2017 Apple.</p>\r\n\r\n<p><br />\r\nSudah lama sekali sejak Apple mampu menyimpan kejutan nyata dari beledu digital dan mengungkapkan &#39;satu hal&#39; yang sebenarnya selama sebuah keynote. Fase desain dan prototyping yang panjang, ditambah dengan rantai pasokan yang diperluas, telah menghasilkan garis manufaktur yang bocor.<br />\r\n<br />\r\nTariklah permintaan yang tak terpuaskan dari si geekerati dan Anda tidak akan pernah bisa menyimpan rahasianya ... bahkan jika penonton akan berpura-pura bahwa segala sesuatu yang dikatakan Tim Cook adalah sebuah wahyu.<br />\r\n<br />\r\nSemuanya di tampilkan untuk portofolio iPhone baru, meskipun jika kita jujur ??tidak ada hal baru yang bisa dilihat. Ini hanya Tim Cook dan timnya yang membuat model tahun lalu &#39;sedikit lebih baik&#39; dan mengajukan konsumen proposisi yang sama seperti setiap produsen smartphone lainnya.<br />\r\n<br />\r\nMungkin aku berharap terlalu banyak dari Apple. Pengulangan Timey dari mimpi Silicon Valley tidak dibangun dengan risiko, mendorong amplop, atau bereksperimen dengan bentuk atau fungsinya. Bagaimana Tim Cook bisa mendorong inovasi ketika begitu banyak kekaisarannya dibangun di seputar kebutuhan akan penjualan siklis iPhone yang terjamin? Jika penjualan smartphone turun, maka yayasan Cupertino akan berada dalam bahaya.<br />\r\n<br />\r\nJawaban Apple untuk ini adalah iPhone 8. Sementara iPhone 7S dan iPhone 7S Plus menjaga harapan, iPhone 8 bisa bereksperimen dengan bentuk, harga, dan kekuatan. Ini adalah handset yang akan mendorong batas teknologi Apple dengan layar OLED yang cerah dan jelas di bawah kaca melengkung yang membentuk bagian luarnya. Inilah smartphone yang membawa kekuatan magis wireless charging ke ekosistem iOS dan akan menawarkan pengenalan wajah untuk keamanan.<br />\r\n<br />\r\nYang semua terdengar hebat tapi itu satu set poin peluru yang bisa diterapkan ke banyak handset Android terkemuka yang ada di pasaran saat ini. Bahkan dengan andalannya yang maju untuk tahun 2017, Apple melakukan sedikit lebih banyak daripada mengenalkan teknologi yang ada ke portofolio iOS.<br />\r\n<br />\r\nItu tidak terlihat seperti ini beberapa bulan yang lalu. Fitur yang diduga dikeluarkan oleh Apple dari iPhone 8 memamerkan beberapa pemikiran terbaru tentang perangkat mobile, termasuk pengisian daya nirkabel jarak jauh dan sensor biometrik tertanam di bawah layar kaca. Ini perlahan-lahan telah terbantahkan oleh industri rumahan dan desas-desus, sampai-sampai kita cukup tahu apa yang terjadi dari iPhone 8.<br />\r\n<br />\r\nTentu saja iPhone 8 (dan lebih dari kemungkinan iPhone 7S dan 7S Plus) akan mendapat keuntungan dari perubahan pada konstruksi interior. Akan ada pencantuman iOS 11 dan integrasi perangkat lunak yang ketat ke perangkat keras. Akan ada anggukan Apple untuk kesederhanaan di UI dan aplikasi pihak ketiga akan segera menghadirkan fitur lanjutan kepada pengguna rata-rata.<br />\r\n<br />\r\nIni bukan perubahan sepele, tapi yang menyoroti ini adalah menjelaskan bagaimana sosis dibuat. Mereka adalah rakit tweak untuk paket yang sama. Anda bisa menambahkan kancing diamante ke gaun Anda, mengganti lapisannya, dan mengeluarkan pinggulnya karena tahun-tahun yang lewat, tapi pakaiannya tetap sama seperti yang orang lihat berkali-kali. Itu cukup bagi bisnis Apple untuk terus melakukannya dengan baik dan membuat pemegang saham tetap bahagia, namun Anda tidak dapat terus kembali ke bidang yang sama dan berharap untuk tetap berada di puncak permainan smartphone. Sesuatu harus diberikan.<br />\r\n<br />\r\nPortofolio Apple 2017 membajak bidang yang sama persis dengan tahun-tahun sebelumnya. Tulang punggung penjualan akan terdiri dari iPhone 7S dan iPhone 7S Plus yang berulang-ulang saat Tim Cook kembali menanam benih di alur yang sama persis seperti model sebelumnya. IPhone 8 dapat diluncurkan tepat waktu, namun stok akan sulit didapat dan Apple akan, sekali lagi, tidak merilis angka penjualan. Ini akan menjadi hal baru yang menarik dan berkilau, tapi mari kita panggil apa adanya.</p>\r\n\r\n<p>Tim Cook akan menyilangkan jari-jarinya sehingga cukup banyak orang yang senang bisa &#39;membeli iPhone lain&#39; dan terus menggelontorkannya tanpa melihat persaingan. IPhone 8 adalah Apple yang bermain mengejar kemajuan teknologi kompetisi, dengan harapan tidak ada yang memperhatikan bahwa iPhone Baru Kaisar tidak semudah yang terlihat.</p>\r\n', '2018-08-08 13:26:08', 5, 'Penelitian', 8, 'a0b99616241c9aded7f2a02661798d98.jpg', 1, 'M Fikri Setiadi', 0, 'iphone-8-baru-mengungkapkan-fitur-mengecewakan');
 
 -- --------------------------------------------------------
 
@@ -775,13 +808,13 @@ ALTER TABLE `tbl_agenda`
 -- AUTO_INCREMENT untuk tabel `tbl_album`
 --
 ALTER TABLE `tbl_album`
-  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_bukti_pembayaran`
 --
 ALTER TABLE `tbl_bukti_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_files`
@@ -793,7 +826,7 @@ ALTER TABLE `tbl_files`
 -- AUTO_INCREMENT untuk tabel `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_guru`
@@ -805,7 +838,7 @@ ALTER TABLE `tbl_guru`
 -- AUTO_INCREMENT untuk tabel `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
-  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kategori`
@@ -823,7 +856,7 @@ ALTER TABLE `tbl_kelas`
 -- AUTO_INCREMENT untuk tabel `tbl_komentar`
 --
 ALTER TABLE `tbl_komentar`
-  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_log_aktivitas`
@@ -853,7 +886,7 @@ ALTER TABLE `tbl_pengumuman`
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=950;
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=954;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_siswa`

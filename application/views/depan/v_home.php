@@ -8,38 +8,42 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img class="d-block" src="<?php echo base_url() . 'theme/images/slider.jpg' ?>" alt="First slide">
+                    <img style="width: 380px; height:500px;" class="d-block" src="<?php echo base_url() . 'theme/images/berfikir.jpg' ?>" alt="First slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
-                            <h1>Bepikir Kreaftif &amp; Inovatif</h1>
-                            <h4>Bagi kami kreativitas merupakan gerbang masa depan.<br> kreativitas akan mendorong inovasi. <br> Itulah yang kami lakukan.</h4>
-                            <div class="slider-btn">
-                                <a href="<?php echo site_url('artikel'); ?>" class="btn btn-default">Learn more</a>
-                            </div>
+                            <h1 style="color:orangered">Simple &amp; Praktis</h1>
+                            <h4>Training menggunakan metode learning by doing<br> menggunakan cara-cara praktis dan simple</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="<?php echo base_url() . 'theme/images/slider-2.jpg' ?>" alt="Second slide">
+                    <img style="width: 380px; height:500px;" class="d-block" src="<?php echo base_url() . 'theme/images/slider2.jpeg' ?>" alt="Second slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
-                            <h1>Guru Bekualitas Tinggi</h1>
-                            <h4>Guru merupakan faktor penting dalam proses belajar-mengajar.<br> Itulah kenapa kami mendatangkan guru-guru <br>terbaik dari berbagai penjuru.</h4>
-                            <div class="slider-btn">
-                                <a href="<?php echo site_url('guru'); ?>" class="btn btn-default">Learn more</a>
-                            </div>
+                            <h1>Trainer Berkomitmen Tinggi</h1>
+                            <h4>Memiliki pengalaman terbaik dalam proses penulisan artikel terindeks Scopus</h4>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="<?php echo base_url() . 'theme/images/slider-3.jpg' ?>" alt="Third slide">
+                    <img style="width: 380px; height:500px;" class="d-block" src="<?php echo base_url() . 'theme/images/learn.jpg' ?>" alt="Third slide">
                     <div class="carousel-caption d-md-block">
                         <div class="slider_title">
-                            <h1>Proses Belajar Interatif</h1>
-                            <h4>Kami membuat proses belajar mengajar menjadi lebih interatif.<br> dengan demikian siswa lebih menyukai <br>proses belajar.</h4>
-                            <div class="slider-btn">
-                                <a href="<?php echo site_url('galeri'); ?>" class="btn btn-default">Learn more</a>
-                            </div>
+                            <h1>Learning by Objective</h1>
+                            <h4>Training memliki capaian akhir yang jelas dan terukur.<br> Setiap sesi pertemuan peserta dipacu untuk mencapai target yang jelas</h4>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img style="width: 380px; height:500px;" class="d-block" src="<?php echo base_url() . 'theme/images/teknologi.jpg' ?>" alt="Fourth slide">
+                    <div class="carousel-caption d-md-block">
+                        <div class="slider_title">
+                            <h1>Kecepatan dan Digital Tools</h1>
+                            <h4>Mengacu pada norma milenial yaitu speed.<br> Membiasakan penggunaan alat-alat digital </h4>
+                           
                         </div>
                     </div>
                 </div>
@@ -62,15 +66,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2>Welcome</h2>
-                <p>Rsc adalah penyedia layanan jasa dibidang pendampingan penyusunan artikel ilmiah dan publikasi artikel ke journal terindeks scopus.
-                    Pendampingan dilaksanakan secara online dan offline secara personal, kelompok dan institusi. Rumah Scopus berdiri pada 20 Februari 2019 yang berpusat di Yogyakarta.
-                    Rsc hadir atas kegelisahan tentang publikasi journal terindeks scopus. Strategi utama Rsc menggabungkan teknologi, ilmu pengetahuan dan pengalaman dalam menyusun
+                <h2>Selamat Datang</h2>
+                <p>Rumah Scopus (RSc) adalah penyedia layanan jasa di bidang pendampingan penyusunan artikel ilmiah dan publikasi ke jurnal terindeks Scopus.
+                    Pendampingan dilaksanakan secara online dan offline secara personal dan kelompok atau institusi. Rumah Scopus berdiri pada 20 Februari 2019 yang berpusat di Yogyakarta.
+                    RSc hadir atas kegelisahan tentang publikasi jurnal terindeks Scopus. Strategi utama RSc menggabungkan teknologi, ilmu pengetahuan dan pengalaman dalam menyusun
                     artikel sesuai standar Internasional. </p>
 
             </div>
             <div class="col-md-4">
-                <img src="<?php echo base_url() . 'theme/images/welcome.png' ?>" class="img-fluid about-img" alt="#">
+                <img src="<?php echo base_url() . 'theme/images/bapak1.jpg' ?>" class="img-fluid about-img" alt="#">
             </div>
         </div>
     </div>
@@ -84,127 +88,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <!------ Include the above in your HEAD tag ---------->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
-                        <center><i class="fa fa-area-chart" style="color:#BB7824"></i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Workshop
-                            <div class="pull-right badge"></div>
-                        </h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color: rgba(22, 160, 133, 0.1)">
-                        <center><i class="fa fa-cubes" style="color:#16A085"></i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Webinar
-                            <div class="pull-right badge" id="WrControls"></div>
-                        </h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color:  rgba(213, 15, 37, 0.1)">
-                        <center><i class="fa fa-pencil-square-o" style="color:#d50f25"> </i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Private Online
-                            <div class="pull-right badge" id="WrForms"></div>
-                        </h4>
-                    </div>
 
-                </a>
-            </div>
-        </div>
-        <br>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
-                        <center><i class="fa fa-table" style="color:#3369e8"> </i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Private Offline
-                            <div class="pull-right badge" id="WrGridSystem"></div>
-                        </h4>
-                    </div>
-
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color:  rgba(250, 188, 9, 0.1)">
-                        <center><i class="fa fa-info-circle" style="color:#fabc09"> </i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Manuscript Preparation
-                            <div class="pull-right badge" id="WrInformation"></div>
-                        </h4>
-                    </div>
-
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color: rgba(121, 90, 71, 0.1)">
-                        <center><i class="fa fa-bars" style="color:#795a47"> </i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Submission Preparation
-                            <div class="pull-right badge" id="WrNavigation"></div>
-                        </h4>
-                    </div>
-
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color: rgba(130, 93, 9, 0.1)">
-                        <center><i class="fa fa-magic" style="color:#825d09"></i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Enhancement H-Index
-                            <div class="pull-right badge" id="WrThemesIcons"></div>
-                        </h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-            <div class="wrimagecard wrimagecard-topimage">
-                <a href="#">
-                    <div class="wrimagecard-topimage_header" style="background-color: rgba(200, 60, 10, 0.1)">
-                        <center><i class="fa fa-magic" style="color:#825d09"></i></center>
-                    </div>
-                    <div class="wrimagecard-topimage_title">
-                        <h4>Bengkel Scopus
-                            <div class="pull-right badge" id="WrThemesIcons"></div>
-                        </h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- end fitur -->
 
 <!--============================= OUR COURSES =============================-->
@@ -240,49 +124,7 @@
 <!--//END OUR COURSES -->
 
 <!--============================= EVENTS =============================-->
-<section class="event">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="event-img2">
-                    <?php foreach ($pengumuman->result() as $row) : ?>
-                        <div class="row">
-                            <div class="col-sm-3"> <img src="<?php echo base_url() . 'theme/images/announcement-icon.png' ?>" class="img-fluid" alt="event-img"></div><!-- // end .col-sm-3 -->
-                            <div class="col-sm-9">
-                                <h3><a href="<?php echo site_url('pengumuman'); ?>"><?php echo $row->pengumuman_judul; ?></a></h3>
-                                <span><?php echo $row->tanggal; ?></span>
-                                <p><?php echo limit_words($row->pengumuman_deskripsi, 10) . '...'; ?></p>
 
-                            </div><!-- // end .col-sm-7 -->
-                        </div><!-- // end .row -->
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php foreach ($agenda->result() as $row) : ?>
-                            <div class="event_date">
-                                <div class="event-date-wrap">
-                                    <p><?php echo date("d", strtotime($row->agenda_tanggal)); ?></p>
-                                    <span><?php echo date("M. y", strtotime($row->agenda_tanggal)); ?></span>
-                                </div>
-                            </div>
-                            <div class="date-description">
-                                <h3><a href="<?php echo site_url('agenda'); ?>"><?php echo $row->agenda_nama; ?></a></h3>
-                                <p><?php echo limit_words($row->agenda_deskripsi, 10) . '...'; ?></p>
-                                <hr class="event_line">
-                            </div>
-                        <?php endforeach; ?>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!--//END EVENTS -->
 
 <!-- VIDEO YOUTUBE -->
 <style>
@@ -370,6 +212,14 @@
                         <div class="testi-img_block">
                             <img src="<?php echo base_url() . 'theme/images/student-1.png' ?>" class="img-fluid" alt="#">
                             <p><span>Hernandez Alvaro</span>Siswa Terbaik 2018</p>
+                        </div>
+                    </div>
+                    <div class="quote">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                        <p class="quote_text">MSCHOOL benar-benar mengagumkan. Saya sangat senang bisa bergabung dengan MSCHOOL dan menjadi siswa terbaik tahun 2017. </p>
+                        <div class="testi-img_block">
+                            <img src="<?php echo base_url() . 'theme/images/student-2.png' ?>" class="img-fluid" alt="#">
+                            <p><span>Elanoar Rigby</span>Siswa Terbaik 2017</p>
                         </div>
                     </div>
                     <div class="quote">

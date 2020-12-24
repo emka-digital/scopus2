@@ -5,13 +5,13 @@
              <div class="col-xs-6 col-sm-8 col-md-9">
                  <div class="header-top_address">
                      <div class="header-top_list">
-                         <span class="icon-phone"></span>0812-2688-32808
+                         <span class="icon-phone"></span>(+62) 812-2688-32808
                      </div>
                      <div class="header-top_list">
                          <span class="icon-envelope-open"></span>Rumahscopus@gmail.com
                      </div>
                      <div class="header-top_list">
-                         <span class="icon-location-pin"></span>jl. Bangunsari, Turi, selaman Yogyakarta 55551
+                         <span class="icon-location-pin"></span>Jl. Bangunsari, Turi, Sleman Yogyakarta 55551
                      </div>
                  </div>
                  <div class="header-top_login2">
@@ -44,20 +44,16 @@
                                  <a class="nav-link" href="<?php echo site_url('about'); ?>">About</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link" href="<?php echo site_url('guru'); ?>">Guru</a>
+                                 <a class="nav-link" href="<?php echo site_url('guru'); ?>">Trainer</a>
                              </li>
                              <!--<li class="nav-item">
                                     <a class="nav-link" href="<?php echo site_url('siswa'); ?>">Siswa</a>
                                 </li>-->
+
+
                              <li class="nav-item">
-                                 <a class="nav-link" href="<?php echo site_url('blog'); ?>">Blog</a>
+                                 <a class="nav-link" href="<?php echo site_url('layanan'); ?>">Service</a>
                              </li>
-                             <li class="nav-item">
-                                 <a class="nav-link" href="<?php echo site_url('pengumuman'); ?>">Pengumuman</a>
-                             </li>
-                             <!--<li class="nav-item">
-                                 <a class="nav-link" href="<?php echo site_url('layanan'); ?>">Layanan</a>
-                             </li>-->
                              <li class="nav-item">
                                  <a class="nav-link" href="<?php echo site_url('agenda'); ?>">Agenda</a>
                              </li>

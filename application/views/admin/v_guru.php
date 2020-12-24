@@ -232,7 +232,7 @@ $jum_pesan = $query->num_rows();
                         <th>Nama</th>
                         <th>Tempat/Tgl Lahir</th>
                         <th>Jenis Kelamin</th>
-                        <th>Mata Pelajaran</th>
+                        <th>Status</th>
                         <th style="text-align:right;">Aksi</th>
                       </tr>
                     </thead>

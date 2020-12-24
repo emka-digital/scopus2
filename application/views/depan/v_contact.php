@@ -43,23 +43,23 @@
                                 <div class="contact-details">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <h6>Alamat</h6>
-                                    <p> Unisco university
-                                        <br> Albany, NY
-                                        <br> USA. 11001</p>
+                                    <p>Jl. Bangunsari, Bangunkerto, Turi 
+                                        <br> Sleman, Yogyakarta
+                                        <br> 55551 Indonesia</p>
                                 </div>
                                 <br>
                                 <div class="contact-details">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                     <h6>Email</h6>
-                                    <p>info@unisco.edu
-                                        <br> admin@unisco.edu
+                                    <p>rumahscopus@gmail.com
+                                       
                                     </p>
                                 </div>
                                 <br>
                                 <div class="contact-details">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <h6>Phone</h6>
-                                    <p>+91 555 668 986</p>
+                                    <h6>Telepon dan WhatsApp</h6>
+                                    <p>(+62) 812-2688-32808</p>
                                 </div>
                             </div>
                         </div>

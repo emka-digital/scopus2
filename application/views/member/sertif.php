@@ -133,11 +133,13 @@
                 </div><!-- /.container-fluid -->
             </section>
 
-            <div class="card m-3" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+            <div class="list-group">
+                <?php foreach ($webinar as $w) : ?>
+                    <a href="<?= base_url('member/sertif/cetak') ?>" class="list-group-item list-group-item-action" aria-current="true">
+                        <?= $w['nama_webinar'] ?>
+                    </a>
+
+                <?php endforeach; ?>
             </div>
         </div>
         <!-- /.content-wrapper -->

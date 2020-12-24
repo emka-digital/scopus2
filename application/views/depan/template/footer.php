@@ -38,23 +38,20 @@
                  <div class="sitemap">
                      <h3>Akademik</h3>
                      <ul>
-                         <li><a href="<?php echo site_url('#'); ?>">Workshop</a></li>
+                         <li><a href="<?php echo site_url('#'); ?>">Bengkel Paper</a></li>
                          <li><a href="<?php echo site_url('#'); ?>">Webinar</a></li>
-                         <li><a href="<?php echo site_url('#'); ?>">Private Online</a></li>
-                         <li><a href="<?php echo site_url('#'); ?>">Private Offline</a></li>
+                         <li><a href="<?php echo site_url('#'); ?>">Private</a></li>
                          <li><a href="<?php echo site_url('#'); ?>">Manuscript Preparation</a></li>
-                         <li><a href="<?php echo site_url('#'); ?>">Submission Preparation</a></li>
-                         <li><a href="<?php echo site_url('#'); ?>">Enhancement H-Index</a></li>
-                         <li><a href="<?php echo site_url('#'); ?>">Bengkel Scopus</a></li>
+                         <li><a href="<?php echo site_url('#'); ?>">Submit and Indexing</a></li>
                      </ul>
                  </div>
              </div>
              <div class="col-md-3">
                  <div class="address">
                      <h3>Hubungi Kami</h3>
-                     <p><span>Alamat: </span>jl. Bangunsari, Turi, selaman Yogyakarta 55551</p>
+                     <p><span>Alamat: </span>Jl. Bangunsari, Bangunkerto, Turi, Sleman, Yogyakarta 55551 Indonesia</p>
                      <p>Email : Rumahscopus@gmail.com
-                         <br> Phone : 0812-2688-32808</p>
+                         <br> Phone : (+62) 812-2688-32808</p>
                      <ul class="footer-social-icons">
                          <li><a href="https://www.facebook.com/rumah.scopus.3"><i class="fa fa-facebook fa-fb" aria-hidden="true"></i></a></li>
                          <li><a href="https://www.youtube.com/channel/UCRieEL0h0Zi4ju0t9zeU76g"><i class="fa fa-youtube fa-in" aria-hidden="true"></i></a></li>

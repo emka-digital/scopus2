@@ -4,18 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <h2>Kata Sambutan</h2>
-                <p>Puji syukur kami panjatkan ke hadirat Tuhan Yang Maha Esa atas karunia dan hidayah-Nya,
-                    sehingga kita semua dapat membaktikan segala hal yang kita miliki untuk kemajuan dunia pendidikan.
-                    Apapun bentuk dan sumbangsih yang kita berikan, jika dilandasi niat yang tulus tanpa memandang imbalan
-                    apapun akan menghasilkan mahakarya yang agung untuk bekal kita dan generasi setelah kita.
-                    Pendidikan adalah harga mati untuk menjadi pondasi bangsa dan negara dalam menghadapi perkembangan zaman.
-                </p>
-                <p>Hal ini seiring dengan penguasaan teknologi untuk dimanfaatkan sebaik mungkin,
-                    sehingga menciptakan iklim kondusif dalam ranah keilmuan. Dengan konsep yang kontekstual dan efektif,
-                    kami mengejewantahkan nilai-nilai pendidikan yang tertuang dalam visi misi M-School,
-                    sebagai panduan hukum dalam menjabarkan tujuan hakiki pendidikan.
-                </p>
+                <h2>Tentang Kami</h2>
+                <p>Rumah Scopus (RSc) adalah penyedia layanan jasa di bidang pendampingan penyusunan artikel ilmiah dan publikasi ke jurnal terindeks Scopus.
+                    Pendampingan dilaksanakan secara online dan offline secara personal dan kelompok atau institusi. Rumah Scopus berdiri pada 20 Februari 2019 yang berpusat di Yogyakarta.
+                    RSc hadir atas kegelisahan tentang publikasi jurnal terindeks Scopus. Strategi utama RSc menggabungkan teknologi, ilmu pengetahuan dan pengalaman dalam menyusun
+                    artikel sesuai standar Internasional. </p>
             </div>
             <div class="col-md-5">
                 <img src="<?php echo base_url() . 'theme/images/welcome-img.jpg' ?>" class="img-fluid" alt="#">
