@@ -144,122 +144,32 @@
           <div class="row">
             <div class="col-md-12">
               <!-- The time line -->
-              <div class="card">
-                <div class="card-header border-transparent">
-                  <h3 class="card-title">Webinar</h3>
+              <?php
+              $id_bulan = $this->uri->segment(4);
+              $nama_bulan = $this->db->get_where('tbl_bulan', ['id' => $id_bulan])->row_array();
+              $webinar = $this->db->get('tbl_webinar')->result_array();
+              foreach ($webinar as $i) :
+                $harga = $i['harga'];
+                $hasil_rupiah = "Rp " . number_format($harga, 2, ',', '.');
+                $bulan = date('F', strtotime($i['tanggal2']));
+                $tanggal1 = date('d', strtotime($i['tgl_pelaksanaan']));
+                $tanggal2 = date('d F Y', strtotime($i['tanggal2'])); ?>
 
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <!--<button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>-->
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="list-group">
-                  <?php
-                  foreach ($bulan as $bln) : ?>
-                    <a href="<?= base_url('member/order/bulan/') . $bln['id'] ?>" class="list-group-item list-group-item-action"><?= $bln['nama'] ?></a>
-                  <?php endforeach; ?>
-                </div>
-                <!-- /.card-body -->
-                <!-- /.card-footer -->
-              </div>
-              <div class="accordion" id="accordionExample">
-
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Workshop
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <?php if ($bulan == $nama_bulan['nama']) : ?>
+                  <div class="card">
                     <div class="card-body">
-                      Coming soon
+                      <h5 class="card-title"><?= $i['nama_webinar'] ?></h5>
+                      <p class="card-text">Pelaksanaan : <?= $tanggal1 ?> s/d <?= $tanggal2 ?></p>
+                      <p class="card-text"> <?= $hasil_rupiah ?></p>
+                      <a href="<?= base_url('member/order/konfir_order/') . $i['id'] ?>" class="btn btn-primary">Order now</a>
                     </div>
                   </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Private
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Coming Soon
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingFour">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                        Manuscript Preparation
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Coming Soon
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingfive">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                        Submission Preparation
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Coming Soon
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingsix">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                        Enhancement Index
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Coming Soon
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingseven">
-                    <h1 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                        Bengkel Scopus
-                      </button>
-                    </h1>
-                  </div>
-                  <div id="collapseseven" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Coming Soon
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+                <?php endif; ?>
+              <?php endforeach; ?>
+              <!-- /.col -->
             </div>
-            <!-- /.col -->
           </div>
-        </div>
-        <!-- /.timeline -->
+          <!-- /.timeline -->
 
       </section>
       <!-- /.content -->

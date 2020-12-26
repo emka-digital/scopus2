@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2020 pada 10.58
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.3.20
+-- Waktu pembuatan: 26 Des 2020 pada 02.33
+-- Versi server: 10.1.34-MariaDB
+-- Versi PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_agenda` (
   `agenda_id` int(11) NOT NULL,
   `agenda_nama` varchar(200) DEFAULT NULL,
-  `agenda_tanggal` timestamp NULL DEFAULT current_timestamp(),
-  `agenda_deskripsi` text DEFAULT NULL,
+  `agenda_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `agenda_deskripsi` text,
   `agenda_mulai` date DEFAULT NULL,
   `agenda_selesai` date DEFAULT NULL,
   `agenda_tempat` varchar(90) DEFAULT NULL,
@@ -58,10 +59,10 @@ INSERT INTO `tbl_agenda` (`agenda_id`, `agenda_nama`, `agenda_tanggal`, `agenda_
 CREATE TABLE `tbl_album` (
   `album_id` int(11) NOT NULL,
   `album_nama` varchar(50) DEFAULT NULL,
-  `album_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `album_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `album_pengguna_id` int(11) DEFAULT NULL,
   `album_author` varchar(60) DEFAULT NULL,
-  `album_count` int(11) DEFAULT 0,
+  `album_count` int(11) DEFAULT '0',
   `album_cover` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,8 +71,9 @@ CREATE TABLE `tbl_album` (
 --
 
 INSERT INTO `tbl_album` (`album_id`, `album_nama`, `album_tanggal`, `album_pengguna_id`, `album_author`, `album_count`, `album_cover`) VALUES
-(5, 'Flyer', '2020-12-23 08:11:51', 5, 'Dickyfli Perdana Putra', 8, 'a6a532b5d1f8cb40d2711160e5a8fdca.jpg'),
-(6, 'webinar', '2020-12-23 08:30:46', 5, 'Dickyfli Perdana Putra', 20, 'bf090974776d9637664bad5a3cc4c2d1.jpg');
+(1, 'Kedatangan Tamu Asing', '2016-09-08 13:00:55', 1, 'M Fikri Setiadi', 5, '202aa754590dfc1070c624bad294abbc.jpg'),
+(3, 'Pemilu Osis 2016-2017', '2017-01-21 01:58:16', 1, 'M Fikri Setiadi', 3, 'dc088a9fb62333012ff7a601828219d7.jpg'),
+(4, 'Kegiatan Belajar Siswa', '2017-01-24 01:31:13', 1, 'M Fikri Setiadi', 7, '203bc0411a07ed0430d39bcc38ec2c56.jpg');
 
 -- --------------------------------------------------------
 
@@ -91,9 +93,29 @@ CREATE TABLE `tbl_bukti_pembayaran` (
 --
 
 INSERT INTO `tbl_bukti_pembayaran` (`id`, `email`, `id_order`, `bukti_pembayaran`) VALUES
-(1, 'Muaralembu11@gmail.com', '90tYs', 'appl11.PNG'),
 (2, 'Muaralembu11@gmail.com', '90tYs', 'appl12.PNG'),
-(3, 'bertojunikrisnanto@gmail.com', 'nKrmG', '10.PNG');
+(4, 'bertojunikrisnanto@gmail.com', 'TJ150', 'Capture21.PNG'),
+(5, 'bertojunikrisnanto@gmail.com', 'BUQGk', 'logo-footer.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_bulan`
+--
+
+CREATE TABLE `tbl_bulan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_bulan`
+--
+
+INSERT INTO `tbl_bulan` (`id`, `nama`, `status`) VALUES
+(1, 'January', 1),
+(2, 'February', 1);
 
 -- --------------------------------------------------------
 
@@ -104,10 +126,10 @@ INSERT INTO `tbl_bukti_pembayaran` (`id`, `email`, `id_order`, `bukti_pembayaran
 CREATE TABLE `tbl_files` (
   `file_id` int(11) NOT NULL,
   `file_judul` varchar(120) DEFAULT NULL,
-  `file_deskripsi` text DEFAULT NULL,
-  `file_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `file_deskripsi` text,
+  `file_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `file_oleh` varchar(60) DEFAULT NULL,
-  `file_download` int(11) DEFAULT 0,
+  `file_download` int(11) DEFAULT '0',
   `file_data` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -137,7 +159,7 @@ INSERT INTO `tbl_files` (`file_id`, `file_judul`, `file_deskripsi`, `file_tangga
 CREATE TABLE `tbl_galeri` (
   `galeri_id` int(11) NOT NULL,
   `galeri_judul` varchar(60) DEFAULT NULL,
-  `galeri_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `galeri_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `galeri_gambar` varchar(40) DEFAULT NULL,
   `galeri_album_id` int(11) DEFAULT NULL,
   `galeri_pengguna_id` int(11) DEFAULT NULL,
@@ -163,35 +185,7 @@ INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_judul`, `galeri_tanggal`, `galeri
 (15, 'Belajar komputer programming', '2017-01-24 01:32:34', '93048f2a103987bce8c8ec8d6912de06.jpg', 4, 1, 'M Fikri Setiadi'),
 (16, 'Belajar komputer programming', '2017-01-24 01:32:44', '41f46be181f2f8452c2041b5e79a05a5.jpg', 4, 1, 'M Fikri Setiadi'),
 (17, 'Belajar sambil bermain', '2017-01-24 01:33:08', '2858b0555c252690e293d29b922ba8e6.jpg', 4, 1, 'M Fikri Setiadi'),
-(18, 'Makan bersama', '2017-01-24 01:33:24', '90d67328e33a31d3f5eecd7dcb25b55d.jpg', 4, 1, 'M Fikri Setiadi'),
-(38, 'Flyer', '2020-12-23 08:49:52', '767237dcafc4b725d01e9f1073d427a0.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(39, 'Flyer 2', '2020-12-23 08:50:26', '2e765497138659f9475716527b51a6d0.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(40, 'flyer 3', '2020-12-23 08:51:10', '61e59a4e0990198931afdd4c8fa6cb09.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(41, 'flyer 4', '2020-12-23 08:51:44', '1f66c9ad52f20ec56ed2a99bb0c7e6e3.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(42, 'flyer 5', '2020-12-23 08:52:32', '3110a28d98b86d8b9e28f3ad481c7863.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(43, 'flyer 6', '2020-12-23 08:53:12', 'd20f822003d6d231450e099d42a9edb6.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(44, 'flyer 7', '2020-12-23 08:54:17', 'a145ef7737944508dbcd4b3647242268.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(45, 'flyer 8', '2020-12-23 08:54:59', '8413ba2fc5b830b958dc477d4e1b1fc9.jpg', 5, 5, 'Dickyfli Perdana Putra'),
-(47, 'webinar', '2020-12-23 08:56:23', '08ae84b88d56dfbdfba1e2a08d6f678d.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(48, 'webinar 2', '2020-12-23 08:56:44', '53fa304fc91807015bdac935a760070b.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(49, 'Webinar 3', '2020-12-23 08:57:23', '06acd55ab1a31d4bea96f44e3b9e62d4.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(50, 'Webinar 4', '2020-12-23 08:57:40', '5830d55a010c3a13ec4227dba991fae8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(51, 'webinar 5', '2020-12-23 08:57:59', '4cefcbb23550d44a79099827fbd85507.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(52, 'webinar 6', '2020-12-23 08:58:17', 'fe133a1c78718225fd2aeed62d4345bb.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(53, 'webinar 7', '2020-12-23 08:59:13', 'e87c5edcc4cd44db58b6d7570e262678.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(54, 'webinar 8', '2020-12-23 08:59:36', '9d9f5322f6db1da1956a1b978cf5d2d3.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(55, 'webinar 9', '2020-12-23 08:59:57', '25c0d336f9b83bd4f738550ad814815e.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(56, 'webinar 10', '2020-12-23 09:00:16', 'c73dd9188ad08bdb2c7280e2d071f652.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(57, 'webinar 11', '2020-12-23 09:22:33', 'dfbca5e96800d56e2c9846dadba72b78.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(58, 'webinar 12', '2020-12-23 09:22:50', '4fc727d96e37ef3c3b2f7a30d6c5bb30.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(60, 'webinar 13', '2020-12-23 09:24:02', '0568fd2f4bc93a322d27c5777514985f.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(61, 'webinar 14', '2020-12-23 09:24:21', '8714ea8db9a29149c176799f66eae103.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(62, 'webinar 15', '2020-12-23 09:24:43', 'da5a20aabf2615a5715b6d695fa96811.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(63, 'webinar 16', '2020-12-23 09:27:03', '33c0ac014ba3044eef6fa13c723528bb.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(64, 'webinar 17', '2020-12-23 09:27:21', 'ce0eb78071eb556adf01d7562ee90bd8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(65, 'webinar 18', '2020-12-23 09:27:46', '4181e970d37444caaef46912fab0d9c0.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(66, 'webinar 19', '2020-12-23 09:28:03', 'b14b4a885466d99d2e9c2a4a056718d8.jpg', 6, 5, 'Dickyfli Perdana Putra'),
-(67, 'webinar kemenkes', '2020-12-23 09:28:40', '84df7199d3d57c40726f860d3ab7e25f.jpg', 6, 5, 'Dickyfli Perdana Putra');
+(18, 'Makan bersama', '2017-01-24 01:33:24', '90d67328e33a31d3f5eecd7dcb25b55d.jpg', 4, 1, 'M Fikri Setiadi');
 
 -- --------------------------------------------------------
 
@@ -208,7 +202,7 @@ CREATE TABLE `tbl_guru` (
   `guru_tgl_lahir` varchar(80) DEFAULT NULL,
   `guru_mapel` varchar(120) DEFAULT NULL,
   `guru_photo` varchar(40) DEFAULT NULL,
-  `guru_tgl_input` timestamp NULL DEFAULT current_timestamp()
+  `guru_tgl_input` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -216,9 +210,11 @@ CREATE TABLE `tbl_guru` (
 --
 
 INSERT INTO `tbl_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_jenkel`, `guru_tmp_lahir`, `guru_tgl_lahir`, `guru_mapel`, `guru_photo`, `guru_tgl_input`) VALUES
-(1, '-', 'Eka Siskawati', 'P', '-', '-', 'Trainer', '306a7dc2af18774738ff9925b9de7ef3.jpeg', '2017-01-26 07:49:43'),
-(2, '-', 'Fadilah Umar', 'L', '-', '-', 'Trainer ', '7cc54c9d4633f6a1f84b19b83a5b06ac.jpeg', '2017-01-26 13:38:54'),
-(3, '-', 'Jamaluddin Hos', 'L', '-', '-', 'Trainer ', '9ae55ed82ab0301cd09996aa0fe0fad5.JPG', '2017-01-26 13:41:20');
+(1, '-', 'Dr. Eka Siskawati, SE., M.Sc.Ak', 'P', '-', '-', 'Trainer', '39939428067ef74e4d3d413462d1f634.jpg', '2017-01-26 07:49:43'),
+(2, '-', 'Dr. Fadilah Umar, S.Pd., M.Or', 'L', '-', '-', 'Trainer ', '1c6b0b69a03a0ee0ea673aeabae01e9c.jpg', '2017-01-26 13:38:54'),
+(3, '-', 'Dr. Jamaluddin Hos., M.Si', 'L', '-', '-', 'Trainer ', '64003eaa81462ed816560c1e18fc7fcf.JPG', '2017-01-26 13:41:20'),
+(9, '--', 'Dr. (Cand) Ir. Bambang Heri Isnawan, MP', 'L', '-', '-', '-', '13248435512e10f30127a222e9b0c131.jpg', '2020-12-25 10:21:06'),
+(10, '-', 'Dr. Jumintono Suwardi Joyo Sumarto, M.Pd', 'L', '-', '-', '-', NULL, '2020-12-25 10:22:37');
 
 -- --------------------------------------------------------
 
@@ -231,9 +227,9 @@ CREATE TABLE `tbl_inbox` (
   `inbox_nama` varchar(40) DEFAULT NULL,
   `inbox_email` varchar(60) DEFAULT NULL,
   `inbox_kontak` varchar(20) DEFAULT NULL,
-  `inbox_pesan` text DEFAULT NULL,
-  `inbox_tanggal` timestamp NULL DEFAULT current_timestamp(),
-  `inbox_status` int(11) DEFAULT 1 COMMENT '1=Belum dilihat, 0=Telah dilihat'
+  `inbox_pesan` text,
+  `inbox_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `inbox_status` int(11) DEFAULT '1' COMMENT '1=Belum dilihat, 0=Telah dilihat'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -246,8 +242,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 (5, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Ping !', '2017-06-21 03:53:19', 0),
 (7, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Hi, there!', '2017-07-01 07:28:08', 0),
 (8, 'M Fikri', 'fikrifiver97@gmail.com', '084375684364', 'Hi There, Would you please help me about register?', '2018-08-06 13:51:07', 0),
-(9, 'joko', 'Muaralembu11@gmail.com', '082386572800', 'jskjjs', '2020-12-13 13:34:22', 0),
-(10, 'suparman', 'Muaralembu11@gmail.com', '082386572800', 'sdfsd', '2020-12-13 13:35:00', 0);
+(9, 'berto', 'bertojunikrisnanto@gmail.com', '0895421735441', 'WQEDWQED', '2020-12-13 03:46:51', 0);
 
 -- --------------------------------------------------------
 
@@ -258,7 +253,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 CREATE TABLE `tbl_kategori` (
   `kategori_id` int(11) NOT NULL,
   `kategori_nama` varchar(30) DEFAULT NULL,
-  `kategori_tanggal` timestamp NULL DEFAULT current_timestamp()
+  `kategori_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -322,10 +317,10 @@ CREATE TABLE `tbl_komentar` (
   `komentar_nama` varchar(30) DEFAULT NULL,
   `komentar_email` varchar(50) DEFAULT NULL,
   `komentar_isi` varchar(120) DEFAULT NULL,
-  `komentar_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `komentar_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `komentar_status` varchar(2) DEFAULT NULL,
   `komentar_tulisan_id` int(11) DEFAULT NULL,
-  `komentar_parent` int(11) DEFAULT 0
+  `komentar_parent` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -335,9 +330,7 @@ CREATE TABLE `tbl_komentar` (
 INSERT INTO `tbl_komentar` (`komentar_id`, `komentar_nama`, `komentar_email`, `komentar_isi`, `komentar_tanggal`, `komentar_status`, `komentar_tulisan_id`, `komentar_parent`) VALUES
 (1, 'M Fikri', 'fikrifiver97@gmail.com', ' Nice Post.', '2018-08-07 15:09:07', '1', 24, 0),
 (2, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', ' Awesome Post', '2018-08-07 15:14:26', '1', 24, 0),
-(3, 'Joko', 'joko@gmail.com', 'Thank you.', '2018-08-08 03:54:56', '1', 24, 1),
-(4, 'Oktarizal', 'Muaralembu11@gmail.com', ' jhjhhjhj', '2020-12-13 13:40:42', '1', 25, 0),
-(5, 'M Fikri Setiadi', '', 'hdjashdkjhaskdh', '2020-12-13 13:41:24', '1', 25, 4);
+(3, 'Joko', 'joko@gmail.com', 'Thank you.', '2018-08-08 03:54:56', '1', 24, 1);
 
 -- --------------------------------------------------------
 
@@ -347,11 +340,11 @@ INSERT INTO `tbl_komentar` (`komentar_id`, `komentar_nama`, `komentar_email`, `k
 
 CREATE TABLE `tbl_log_aktivitas` (
   `log_id` int(11) NOT NULL,
-  `log_nama` text DEFAULT NULL,
-  `log_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `log_nama` text,
+  `log_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `log_ip` varchar(20) DEFAULT NULL,
   `log_pengguna_id` int(11) DEFAULT NULL,
-  `log_icon` blob DEFAULT NULL,
+  `log_icon` blob,
   `log_jenis_icon` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -404,6 +397,7 @@ CREATE TABLE `tbl_menu_member` (
 INSERT INTO `tbl_menu_member` (`id`, `title`, `url`, `icon`) VALUES
 (1, 'Dashboard', 'member/dasboard', 'nav-icon fas fa-fw fa-tachometer-alt'),
 (2, 'Profile', 'member/profile', 'nav-icon fas fa-fw fa-users-cog'),
+(3, 'Referal', 'member/profile', 'nav-icon fas fa-fw fa-users'),
 (4, 'Order', 'member/order', 'nav-icon fas fa-fw fa-shopping-cart'),
 (7, 'Invoice', 'member/tagihan', 'nav-icon fas fa-fw fa-dollar-sign'),
 (8, 'Download', 'member/ambil', 'nav-icon fas fa-fw fa-cloud-download-alt'),
@@ -433,12 +427,14 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `nama`, `email`, `nama_webinar`, `tanggal`, `tanggal_pelaksanaan`, `harga`, `status`) VALUES
-('8hxS2', 'berto juni', 'bertojunikrisnanto@gmail.com', 'jhgjhgjgj', '13 December 2020', '2020-12-16', 76767, 0),
 ('90tYs', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Value Investing', '10 December 2020', '2020-11-23', 500000, 0),
-('nKrmG', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Technical analysis Saham', '13 December 2020', '2020-11-26', 600000, 1),
+('BUQGk', 'berto juni', 'bertojunikrisnanto@gmail.com', 'h-index', '13 December 2020', '2020-12-19', 50000, 0),
+('GzmYr', 'berto juni', 'bertojunikrisnanto@gmail.com', 'h-index', '13 December 2020', '2020-12-19', 50000, 0),
+('l5Jzn', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Batch 16', '25 December 2020', '2021-01-05', 500000, 0),
 ('nSwAV', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Ngoding Skuy', '05 December 2020', '2020-11-25', 10000000, 1),
-('Ojwt7', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Value Investing', '13 December 2020', '2020-11-23', 500000, 0),
-('Tn7zx', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Technical analysis Saham', '11 December 2020', '2020-11-26', 600000, 0);
+('TJ150', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Technical analysis Saham', '11 December 2020', '2020-11-26', 600000, 1),
+('Tn7zx', 'Minatozaki Sana', 'Muaralembu11@gmail.com', 'Technical analysis Saham', '11 December 2020', '2020-11-26', 600000, 0),
+('z52ko', 'berto juni', 'bertojunikrisnanto@gmail.com', 'Batch 16', '25 December 2020', '2021-01-05', 500000, 0);
 
 -- --------------------------------------------------------
 
@@ -453,16 +449,16 @@ CREATE TABLE `tbl_pengguna` (
   `pengguna_jenkel` varchar(2) DEFAULT NULL,
   `pengguna_username` varchar(30) DEFAULT NULL,
   `pengguna_password` varchar(35) DEFAULT NULL,
-  `pengguna_tentang` text DEFAULT NULL,
+  `pengguna_tentang` text,
   `pengguna_email` varchar(50) DEFAULT NULL,
   `pengguna_nohp` varchar(20) DEFAULT NULL,
   `pengguna_facebook` varchar(35) DEFAULT NULL,
   `pengguna_twitter` varchar(35) DEFAULT NULL,
   `pengguna_linkdin` varchar(35) DEFAULT NULL,
   `pengguna_google_plus` varchar(35) DEFAULT NULL,
-  `pengguna_status` int(2) DEFAULT 1,
+  `pengguna_status` int(2) DEFAULT '1',
   `pengguna_level` varchar(3) DEFAULT NULL,
-  `pengguna_register` timestamp NULL DEFAULT current_timestamp(),
+  `pengguna_register` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengguna_photo` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -471,8 +467,8 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pengguna_jenkel`, `pengguna_username`, `pengguna_password`, `pengguna_tentang`, `pengguna_email`, `pengguna_nohp`, `pengguna_facebook`, `pengguna_twitter`, `pengguna_linkdin`, `pengguna_google_plus`, `pengguna_status`, `pengguna_level`, `pengguna_register`, `pengguna_photo`) VALUES
-(1, 'M Fikri Setiadi', 'Just do it', 'L', 'admin', 'cbf8e3749d40eb3ae5f14d1ea0db6e98', 'I am a mountainner. to me mountainerring is a life', 'fikrifiver97@gmail.com', '081277159401', 'facebook.com/m_fikri_setiadi', 'twitter.com/fiver_fiver', '', '', 1, '1', '2016-09-03 06:07:55', 'db5dec647062751f2fb236b9bc3f1c54.png'),
-(5, 'Dickyfli Perdana Putra', NULL, 'L', 'dickyfli', '4d5c63dd7149de9360248f633effa069', NULL, 'Muaralembu11@gmail.com', '082386572800', NULL, NULL, NULL, NULL, 1, '1', '2020-11-10 17:17:41', 'b4a3e95f8237cbed3de04745478b9d3a.jpg');
+(5, 'Dickyfli Perdana Putra', NULL, 'L', 'dickyfli', 'bf017bbfaf9063551acc6d82a9f54e40', NULL, 'Muaralembu11@gmail.com', '082386572800', NULL, NULL, NULL, NULL, 1, '1', '2020-11-10 17:17:41', 'b4a3e95f8237cbed3de04745478b9d3a.jpg'),
+(6, 'Berto juni k', NULL, 'L', 'bertojuni', '23af1b6a152bce78695265cc959265ab', NULL, 'bertojuni98@gmail.com', '0895421735441', NULL, NULL, NULL, NULL, 1, '1', '2020-12-13 08:35:31', '90f5beadac0dae2e3b0ab68e7225ee40.jpg');
 
 -- --------------------------------------------------------
 
@@ -483,8 +479,8 @@ INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pe
 CREATE TABLE `tbl_pengumuman` (
   `pengumuman_id` int(11) NOT NULL,
   `pengumuman_judul` varchar(150) DEFAULT NULL,
-  `pengumuman_deskripsi` text DEFAULT NULL,
-  `pengumuman_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `pengumuman_deskripsi` text,
+  `pengumuman_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengumuman_author` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -506,7 +502,7 @@ INSERT INTO `tbl_pengumuman` (`pengumuman_id`, `pengumuman_judul`, `pengumuman_d
 
 CREATE TABLE `tbl_pengunjung` (
   `pengunjung_id` int(11) NOT NULL,
-  `pengunjung_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `pengunjung_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengunjung_ip` varchar(40) DEFAULT NULL,
   `pengunjung_perangkat` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -536,10 +532,11 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (947, '2020-12-09 13:33:55', '::1', 'Chrome'),
 (948, '2020-12-10 02:08:52', '::1', 'Chrome'),
 (949, '2020-12-11 05:29:21', '::1', 'Chrome'),
-(950, '2020-12-13 10:46:42', '::1', 'Chrome'),
-(951, '2020-12-21 12:48:55', '::1', 'Chrome'),
-(952, '2020-12-22 12:14:47', '::1', 'Chrome'),
-(953, '2020-12-23 03:59:36', '::1', 'Chrome');
+(950, '2020-12-12 12:07:26', '::1', 'Chrome'),
+(951, '2020-12-13 02:48:49', '::1', 'Chrome'),
+(952, '2020-12-21 12:40:49', '::1', 'Chrome'),
+(953, '2020-12-24 04:34:00', '::1', 'Chrome'),
+(954, '2020-12-25 03:52:19', '::1', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -598,7 +595,7 @@ CREATE TABLE `tbl_testimoni` (
   `testimoni_nama` varchar(30) DEFAULT NULL,
   `testimoni_isi` varchar(120) DEFAULT NULL,
   `testimoni_email` varchar(35) DEFAULT NULL,
-  `testimoni_tanggal` timestamp NULL DEFAULT current_timestamp()
+  `testimoni_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -610,15 +607,15 @@ CREATE TABLE `tbl_testimoni` (
 CREATE TABLE `tbl_tulisan` (
   `tulisan_id` int(11) NOT NULL,
   `tulisan_judul` varchar(100) DEFAULT NULL,
-  `tulisan_isi` text DEFAULT NULL,
-  `tulisan_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `tulisan_isi` text,
+  `tulisan_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `tulisan_kategori_id` int(11) DEFAULT NULL,
   `tulisan_kategori_nama` varchar(30) DEFAULT NULL,
-  `tulisan_views` int(11) DEFAULT 0,
+  `tulisan_views` int(11) DEFAULT '0',
   `tulisan_gambar` varchar(40) DEFAULT NULL,
   `tulisan_pengguna_id` int(11) DEFAULT NULL,
   `tulisan_author` varchar(40) DEFAULT NULL,
-  `tulisan_img_slider` int(2) NOT NULL DEFAULT 0,
+  `tulisan_img_slider` int(2) NOT NULL DEFAULT '0',
   `tulisan_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -631,7 +628,7 @@ INSERT INTO `tbl_tulisan` (`tulisan_id`, `tulisan_judul`, `tulisan_isi`, `tulisa
 (22, 'Prestasi membangga dari siswa MSchool', '<p>Prestasi dan penghargaan merupakan trigger (pemicu) semangat belajar siswa. Ada banyak prestasi yang telah diraih oleh siswa m-sekolah. Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:38:21', 6, 'Prestasi', 1, 'a59aa487ab2e3b57b2fcf75063b67575.jpg', 1, 'M Fikri Setiadi', 0, 'prestasi-membangga-dari-siswa-mschool'),
 (23, 'Pelaksanaan Ujian Nasional MSchool', '<p>Pelaksanaan UN (Ujian Nasional) di sekolah M-Sekolah berlangsung tentram dan damai. Terlihat ketenangan terpancar diwajah siswa berprestasi.&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:41:30', 1, 'Pendidikan', 3, '12bfb1953df800c59835a2796f8c6619.jpg', 1, 'M Fikri Setiadi', 0, 'pelaksanaan-ujian-nasional-mschool'),
 (24, 'Proses belajar mengajar MSchool', '<p>Proses belajar mengajar di sekolah m-sekolah berlangsung menyenangkan. Didukung oleh instruktur yang fun dengan metode mengajar yang tidak biasa. Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel a Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel .</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:46:29', 1, 'Pendidikan', 162, 'ea114dc1ec5275560a5ef3238fd04722.jpg', 1, 'M Fikri Setiadi', 0, 'proses-belajar-mengajar-mschool'),
-(25, 'iPhone 8 Baru Mengungkapkan Fitur Mengecewakan', '<p>Apple CEO Tim Cook delivers the opening keynote address the 2017 Apple.</p>\r\n\r\n<p><br />\r\nSudah lama sekali sejak Apple mampu menyimpan kejutan nyata dari beledu digital dan mengungkapkan &#39;satu hal&#39; yang sebenarnya selama sebuah keynote. Fase desain dan prototyping yang panjang, ditambah dengan rantai pasokan yang diperluas, telah menghasilkan garis manufaktur yang bocor.<br />\r\n<br />\r\nTariklah permintaan yang tak terpuaskan dari si geekerati dan Anda tidak akan pernah bisa menyimpan rahasianya ... bahkan jika penonton akan berpura-pura bahwa segala sesuatu yang dikatakan Tim Cook adalah sebuah wahyu.<br />\r\n<br />\r\nSemuanya di tampilkan untuk portofolio iPhone baru, meskipun jika kita jujur ??tidak ada hal baru yang bisa dilihat. Ini hanya Tim Cook dan timnya yang membuat model tahun lalu &#39;sedikit lebih baik&#39; dan mengajukan konsumen proposisi yang sama seperti setiap produsen smartphone lainnya.<br />\r\n<br />\r\nMungkin aku berharap terlalu banyak dari Apple. Pengulangan Timey dari mimpi Silicon Valley tidak dibangun dengan risiko, mendorong amplop, atau bereksperimen dengan bentuk atau fungsinya. Bagaimana Tim Cook bisa mendorong inovasi ketika begitu banyak kekaisarannya dibangun di seputar kebutuhan akan penjualan siklis iPhone yang terjamin? Jika penjualan smartphone turun, maka yayasan Cupertino akan berada dalam bahaya.<br />\r\n<br />\r\nJawaban Apple untuk ini adalah iPhone 8. Sementara iPhone 7S dan iPhone 7S Plus menjaga harapan, iPhone 8 bisa bereksperimen dengan bentuk, harga, dan kekuatan. Ini adalah handset yang akan mendorong batas teknologi Apple dengan layar OLED yang cerah dan jelas di bawah kaca melengkung yang membentuk bagian luarnya. Inilah smartphone yang membawa kekuatan magis wireless charging ke ekosistem iOS dan akan menawarkan pengenalan wajah untuk keamanan.<br />\r\n<br />\r\nYang semua terdengar hebat tapi itu satu set poin peluru yang bisa diterapkan ke banyak handset Android terkemuka yang ada di pasaran saat ini. Bahkan dengan andalannya yang maju untuk tahun 2017, Apple melakukan sedikit lebih banyak daripada mengenalkan teknologi yang ada ke portofolio iOS.<br />\r\n<br />\r\nItu tidak terlihat seperti ini beberapa bulan yang lalu. Fitur yang diduga dikeluarkan oleh Apple dari iPhone 8 memamerkan beberapa pemikiran terbaru tentang perangkat mobile, termasuk pengisian daya nirkabel jarak jauh dan sensor biometrik tertanam di bawah layar kaca. Ini perlahan-lahan telah terbantahkan oleh industri rumahan dan desas-desus, sampai-sampai kita cukup tahu apa yang terjadi dari iPhone 8.<br />\r\n<br />\r\nTentu saja iPhone 8 (dan lebih dari kemungkinan iPhone 7S dan 7S Plus) akan mendapat keuntungan dari perubahan pada konstruksi interior. Akan ada pencantuman iOS 11 dan integrasi perangkat lunak yang ketat ke perangkat keras. Akan ada anggukan Apple untuk kesederhanaan di UI dan aplikasi pihak ketiga akan segera menghadirkan fitur lanjutan kepada pengguna rata-rata.<br />\r\n<br />\r\nIni bukan perubahan sepele, tapi yang menyoroti ini adalah menjelaskan bagaimana sosis dibuat. Mereka adalah rakit tweak untuk paket yang sama. Anda bisa menambahkan kancing diamante ke gaun Anda, mengganti lapisannya, dan mengeluarkan pinggulnya karena tahun-tahun yang lewat, tapi pakaiannya tetap sama seperti yang orang lihat berkali-kali. Itu cukup bagi bisnis Apple untuk terus melakukannya dengan baik dan membuat pemegang saham tetap bahagia, namun Anda tidak dapat terus kembali ke bidang yang sama dan berharap untuk tetap berada di puncak permainan smartphone. Sesuatu harus diberikan.<br />\r\n<br />\r\nPortofolio Apple 2017 membajak bidang yang sama persis dengan tahun-tahun sebelumnya. Tulang punggung penjualan akan terdiri dari iPhone 7S dan iPhone 7S Plus yang berulang-ulang saat Tim Cook kembali menanam benih di alur yang sama persis seperti model sebelumnya. IPhone 8 dapat diluncurkan tepat waktu, namun stok akan sulit didapat dan Apple akan, sekali lagi, tidak merilis angka penjualan. Ini akan menjadi hal baru yang menarik dan berkilau, tapi mari kita panggil apa adanya.</p>\r\n\r\n<p>Tim Cook akan menyilangkan jari-jarinya sehingga cukup banyak orang yang senang bisa &#39;membeli iPhone lain&#39; dan terus menggelontorkannya tanpa melihat persaingan. IPhone 8 adalah Apple yang bermain mengejar kemajuan teknologi kompetisi, dengan harapan tidak ada yang memperhatikan bahwa iPhone Baru Kaisar tidak semudah yang terlihat.</p>\r\n', '2018-08-08 13:26:08', 5, 'Penelitian', 8, 'a0b99616241c9aded7f2a02661798d98.jpg', 1, 'M Fikri Setiadi', 0, 'iphone-8-baru-mengungkapkan-fitur-mengecewakan');
+(25, 'iPhone 8 Baru Mengungkapkan Fitur Mengecewakan', '<p>Apple CEO Tim Cook delivers the opening keynote address the 2017 Apple.</p>\r\n\r\n<p><br />\r\nSudah lama sekali sejak Apple mampu menyimpan kejutan nyata dari beledu digital dan mengungkapkan &#39;satu hal&#39; yang sebenarnya selama sebuah keynote. Fase desain dan prototyping yang panjang, ditambah dengan rantai pasokan yang diperluas, telah menghasilkan garis manufaktur yang bocor.<br />\r\n<br />\r\nTariklah permintaan yang tak terpuaskan dari si geekerati dan Anda tidak akan pernah bisa menyimpan rahasianya ... bahkan jika penonton akan berpura-pura bahwa segala sesuatu yang dikatakan Tim Cook adalah sebuah wahyu.<br />\r\n<br />\r\nSemuanya di tampilkan untuk portofolio iPhone baru, meskipun jika kita jujur ??tidak ada hal baru yang bisa dilihat. Ini hanya Tim Cook dan timnya yang membuat model tahun lalu &#39;sedikit lebih baik&#39; dan mengajukan konsumen proposisi yang sama seperti setiap produsen smartphone lainnya.<br />\r\n<br />\r\nMungkin aku berharap terlalu banyak dari Apple. Pengulangan Timey dari mimpi Silicon Valley tidak dibangun dengan risiko, mendorong amplop, atau bereksperimen dengan bentuk atau fungsinya. Bagaimana Tim Cook bisa mendorong inovasi ketika begitu banyak kekaisarannya dibangun di seputar kebutuhan akan penjualan siklis iPhone yang terjamin? Jika penjualan smartphone turun, maka yayasan Cupertino akan berada dalam bahaya.<br />\r\n<br />\r\nJawaban Apple untuk ini adalah iPhone 8. Sementara iPhone 7S dan iPhone 7S Plus menjaga harapan, iPhone 8 bisa bereksperimen dengan bentuk, harga, dan kekuatan. Ini adalah handset yang akan mendorong batas teknologi Apple dengan layar OLED yang cerah dan jelas di bawah kaca melengkung yang membentuk bagian luarnya. Inilah smartphone yang membawa kekuatan magis wireless charging ke ekosistem iOS dan akan menawarkan pengenalan wajah untuk keamanan.<br />\r\n<br />\r\nYang semua terdengar hebat tapi itu satu set poin peluru yang bisa diterapkan ke banyak handset Android terkemuka yang ada di pasaran saat ini. Bahkan dengan andalannya yang maju untuk tahun 2017, Apple melakukan sedikit lebih banyak daripada mengenalkan teknologi yang ada ke portofolio iOS.<br />\r\n<br />\r\nItu tidak terlihat seperti ini beberapa bulan yang lalu. Fitur yang diduga dikeluarkan oleh Apple dari iPhone 8 memamerkan beberapa pemikiran terbaru tentang perangkat mobile, termasuk pengisian daya nirkabel jarak jauh dan sensor biometrik tertanam di bawah layar kaca. Ini perlahan-lahan telah terbantahkan oleh industri rumahan dan desas-desus, sampai-sampai kita cukup tahu apa yang terjadi dari iPhone 8.<br />\r\n<br />\r\nTentu saja iPhone 8 (dan lebih dari kemungkinan iPhone 7S dan 7S Plus) akan mendapat keuntungan dari perubahan pada konstruksi interior. Akan ada pencantuman iOS 11 dan integrasi perangkat lunak yang ketat ke perangkat keras. Akan ada anggukan Apple untuk kesederhanaan di UI dan aplikasi pihak ketiga akan segera menghadirkan fitur lanjutan kepada pengguna rata-rata.<br />\r\n<br />\r\nIni bukan perubahan sepele, tapi yang menyoroti ini adalah menjelaskan bagaimana sosis dibuat. Mereka adalah rakit tweak untuk paket yang sama. Anda bisa menambahkan kancing diamante ke gaun Anda, mengganti lapisannya, dan mengeluarkan pinggulnya karena tahun-tahun yang lewat, tapi pakaiannya tetap sama seperti yang orang lihat berkali-kali. Itu cukup bagi bisnis Apple untuk terus melakukannya dengan baik dan membuat pemegang saham tetap bahagia, namun Anda tidak dapat terus kembali ke bidang yang sama dan berharap untuk tetap berada di puncak permainan smartphone. Sesuatu harus diberikan.<br />\r\n<br />\r\nPortofolio Apple 2017 membajak bidang yang sama persis dengan tahun-tahun sebelumnya. Tulang punggung penjualan akan terdiri dari iPhone 7S dan iPhone 7S Plus yang berulang-ulang saat Tim Cook kembali menanam benih di alur yang sama persis seperti model sebelumnya. IPhone 8 dapat diluncurkan tepat waktu, namun stok akan sulit didapat dan Apple akan, sekali lagi, tidak merilis angka penjualan. Ini akan menjadi hal baru yang menarik dan berkilau, tapi mari kita panggil apa adanya.</p>\r\n\r\n<p>Tim Cook akan menyilangkan jari-jarinya sehingga cukup banyak orang yang senang bisa &#39;membeli iPhone lain&#39; dan terus menggelontorkannya tanpa melihat persaingan. IPhone 8 adalah Apple yang bermain mengejar kemajuan teknologi kompetisi, dengan harapan tidak ada yang memperhatikan bahwa iPhone Baru Kaisar tidak semudah yang terlihat.</p>\r\n', '2018-08-08 13:26:08', 5, 'Penelitian', 4, 'a0b99616241c9aded7f2a02661798d98.jpg', 1, 'M Fikri Setiadi', 0, 'iphone-8-baru-mengungkapkan-fitur-mengecewakan');
 
 -- --------------------------------------------------------
 
@@ -645,17 +642,19 @@ CREATE TABLE `tbl_webinar` (
   `deskripsi` text NOT NULL,
   `harga` int(11) NOT NULL,
   `kuota` int(11) NOT NULL,
-  `tgl_pelaksanaan` date NOT NULL
+  `tgl_pelaksanaan` date NOT NULL,
+  `tanggal2` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_webinar`
 --
 
-INSERT INTO `tbl_webinar` (`id`, `nama_webinar`, `deskripsi`, `harga`, `kuota`, `tgl_pelaksanaan`) VALUES
-('GLwoH', 'Technical analysis Saham', 'membeplajari tentang ilmu technical analysis di saham', 600000, 10, '2020-11-26'),
-('ojzfG', 'Value Investing', 'belajar tentang value investing di saham', 500000, 50, '2020-11-23'),
-('xWpcr', 'Ngoding Skuy', 'belajar ngoding dari 0 sampai bisa', 10000000, 100, '2020-11-25');
+INSERT INTO `tbl_webinar` (`id`, `nama_webinar`, `deskripsi`, `harga`, `kuota`, `tgl_pelaksanaan`, `tanggal2`) VALUES
+('cAaSI', 'Batch 16', 'asdfasd', 500000, 1000, '2021-01-05', '2021-01-23'),
+('GLwoH', 'Batch 17', 'membeplajari tentang ilmu technical analysis di saham', 500000, 10, '2021-01-06', '2021-01-24'),
+('ojzfG', 'Batch 18', 'belajar tentang value investing di saham', 500000, 50, '2021-01-07', '2021-01-25'),
+('xWpcr', 'Batch 19', 'belajar ngoding dari 0 sampai bisa', 500000, 100, '2021-02-08', '2021-02-26');
 
 --
 -- Indexes for dumped tables
@@ -678,6 +677,12 @@ ALTER TABLE `tbl_album`
 -- Indeks untuk tabel `tbl_bukti_pembayaran`
 --
 ALTER TABLE `tbl_bukti_pembayaran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_bulan`
+--
+ALTER TABLE `tbl_bulan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -808,13 +813,19 @@ ALTER TABLE `tbl_agenda`
 -- AUTO_INCREMENT untuk tabel `tbl_album`
 --
 ALTER TABLE `tbl_album`
-  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_bukti_pembayaran`
 --
 ALTER TABLE `tbl_bukti_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_bulan`
+--
+ALTER TABLE `tbl_bulan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_files`
@@ -826,19 +837,19 @@ ALTER TABLE `tbl_files`
 -- AUTO_INCREMENT untuk tabel `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_guru`
 --
 ALTER TABLE `tbl_guru`
-  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
-  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kategori`
@@ -856,7 +867,7 @@ ALTER TABLE `tbl_kelas`
 -- AUTO_INCREMENT untuk tabel `tbl_komentar`
 --
 ALTER TABLE `tbl_komentar`
-  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_log_aktivitas`
@@ -874,7 +885,7 @@ ALTER TABLE `tbl_menu_member`
 -- AUTO_INCREMENT untuk tabel `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
-  MODIFY `pengguna_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pengguna_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pengumuman`
@@ -886,7 +897,7 @@ ALTER TABLE `tbl_pengumuman`
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=954;
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=955;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_siswa`
